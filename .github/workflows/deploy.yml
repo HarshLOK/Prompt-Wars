@@ -10,7 +10,7 @@ on:
       - '.github/workflows/deploy.yml'
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # Define this in GitHub Secrets
+  PROJECT_ID: prompt-wars-493811
   SERVICE: crowdsync-backend
   REGION: us-central1
 

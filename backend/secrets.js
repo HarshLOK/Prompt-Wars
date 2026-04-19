@@ -10,7 +10,7 @@ async function accessSecretVersion(secretName) {
     }
 
     try {
-        const projectId = process.env.GCP_PROJECT_ID || 'my-project-id';
+        const projectId = process.env.GCP_PROJECT_ID || 'prompt-wars-493811';
         const name = `projects/${projectId}/secrets/${secretName}/versions/latest`;
 
         // Access the secret.
