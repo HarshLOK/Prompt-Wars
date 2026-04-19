@@ -1,0 +1,896 @@
+=== PRD ===
+ 
+PRODUCT REQUIREMENTS DOCUMENT
+Smart Venue Experience System
+Transforming Large-Scale Sporting Events with Real-Time Intelligence
+Version 1.0  |  April 2026
+Classification: Internal  |  Status: Draft
+Document Information
+Document Title
+Smart Venue Experience System — PRD
+Version
+1.0
+Date
+April 2026
+Status
+Draft
+Owner
+Product Management
+Target Users
+Event Attendees, Venue Staff, Venue Operators
+Domain
+Sports & Entertainment Technology
+Executive Summary
+The Smart Venue Experience System (SVES) is an integrated digital platform designed to transform the experience of attending large-scale sporting events. By combining mobile applications, IoT sensor networks, AI-driven crowd analytics, and centralized staff coordination tools, the system addresses the three most critical pain points in physical events: crowd bottlenecks, excessive waiting times, and fragmented communication.
+The platform serves three distinct user groups — Attendees who need real-time guidance and services, Staff who require operational dashboards and coordination tools, and Venue Operators who demand strategic analytics and infrastructure integration. The expected outcome is a measurable reduction in crowd-related incidents, shorter average wait times by 40%, and a significant uplift in attendee satisfaction scores.
+1. Product Goals & Objectives
+1.1 Vision Statement
+To make every large-scale sporting venue a seamlessly managed, data-driven environment where attendees move confidently, staff operate proactively, and venue operators continuously improve through real-time intelligence.
+1.2 Business Goals
+Reduce crowd-related safety incidents by 60% within the first season of deployment.
+Decrease average gate entry time from 8 minutes to under 3 minutes.
+Achieve a Net Promoter Score (NPS) of 70+ for the attendee mobile app within 6 months.
+Increase revenue per attendee by 20% through in-app pre-ordering and targeted notifications.
+Enable venue operators to cut staffing inefficiency by 25% through intelligent task routing.
+Establish the platform as a scalable SaaS product deployable across multiple venues globally.
+1.3 Product Objectives
+Build a real-time crowd density monitoring system with sub-2-minute data refresh.
+Launch a cross-platform mobile app (iOS and Android) for attendees.
+Deliver a browser-based operations dashboard for staff and venue managers.
+Integrate with existing venue systems: ticketing, CCTV, POS, and transport APIs.
+Implement AI-based predictive congestion alerts with at least 85% accuracy.
+Support accessibility features for elderly, disabled, and non-English speaking visitors.
+1.4 Scope
+In Scope
+Attendee-facing mobile application (iOS & Android)
+Staff operations web dashboard
+Venue management analytics portal
+IoT sensor data ingestion pipeline
+AI crowd prediction engine
+QR-based digital ticketing and entry control
+In-app food, drink, and merchandise pre-ordering
+Push notifications, SMS alerts, and digital signage integration
+Post-event analytics and reporting
+Out of Scope (v1.0)
+Physical hardware installation and infrastructure management
+Direct integration with third-party ticketing resellers
+Loyalty rewards and gamification features
+Multi-language support beyond English and Hindi (added in v1.5)
+2. Target Users & Personas
+The system is designed for three primary user groups, each with distinct needs and interaction patterns.
+  PERSONA 1 — The Event Attendee
+Representative Users: Riya (28, casual fan), Raj (45, season ticket holder), Priya (67, elderly visitor with mobility needs)
+Goals
+Enter the venue quickly without long queues
+Find their seat, food stalls, restrooms, and exits without confusion
+Stay informed about match updates, gate changes, and emergency instructions
+Order food and merchandise without missing action on the field
+Exit safely and efficiently after the event
+Pain Points
+Long, unpredictable queues at entry gates and food counters
+Confusing layouts in large stadiums with poor signage
+No real-time communication about delays or gate changes
+Difficulty navigating for elderly or disabled visitors
+Missing match moments while waiting in queues
+  PERSONA 2 — The Venue Staff Member
+Representative Users: Ahmed (Security Supervisor), Sunita (Crowd Management Coordinator), Vikram (Gate Marshal)
+Goals
+Monitor crowd density and service queues in real time
+Receive instant alerts when areas become congested
+Assign and dispatch team members to problem areas quickly
+Communicate announcements to attendees via multiple channels
+Log and escalate incidents through a structured system
+Pain Points
+Fragmented communication across radio, phone, and verbal channels
+No centralized view of venue-wide crowd distribution
+Reactive rather than proactive crowd management
+Inconsistent data from different venue zones
+  PERSONA 3 — The Venue Operator
+Representative Users: Meera (Operations Director), Aarav (Head of Guest Experience), Tanya (Data Analyst)
+Goals
+Maintain a safe, compliant, and enjoyable environment for all attendees
+Maximize revenue from concessions, merchandise, and premium services
+Access detailed post-event analytics to improve future planning
+Coordinate emergency response across all venue departments
+Justify operational technology investments with measurable ROI data
+Pain Points
+Limited visibility into real-time operational performance
+Inability to predict crowd surges before they become problems
+Disjointed data from ticketing, POS, CCTV, and transport systems
+Difficulty demonstrating event improvement over time
+3. User Stories
+The following user stories define the required behaviour from the perspective of each persona. Priority levels: High (must-have for MVP), Medium (v1.0), Low (future).
+3.1 Attendee User Stories
+ID
+As a...
+I want to...
+So that...
+Priority
+ATT-01
+Attendee
+scan a QR code to enter the venue quickly
+I avoid long paper ticket queues and enter in under 60 seconds
+High
+ATT-02
+Attendee
+see my seat location on a live venue map
+I can navigate to my seat without asking staff
+High
+ATT-03
+Attendee
+view real-time wait times for each entry gate
+I can choose the fastest gate on arrival
+High
+ATT-04
+Attendee
+receive push notifications about gate changes or match delays
+I'm always informed without checking manually
+High
+ATT-05
+Attendee
+pre-order food and drinks from my phone
+I don't miss match action while standing in queues
+High
+ATT-06
+Attendee
+see estimated wait times at food and merchandise counters
+I can plan when to visit without wasting time
+Medium
+ATT-07
+Attendee
+get smart navigation to restrooms, first aid, and exits
+I always know where to go in an unfamiliar venue
+Medium
+ATT-08
+Attendee
+receive exit guidance after the event ends
+I can leave quickly using less-crowded routes
+Medium
+ATT-09
+Elderly/Disabled visitor
+access accessible routes and facilities on the map
+I can attend the event comfortably and safely
+High
+ATT-10
+Attendee
+get emergency alerts with evacuation instructions
+I know exactly what to do in a crisis without panic
+High
+3.2 Staff User Stories
+ID
+As a...
+I want to...
+So that...
+Priority
+STF-01
+Security Supervisor
+view a live heatmap of crowd density
+I can identify and respond to congestion before it becomes dangerous
+High
+STF-02
+Gate Marshal
+receive alerts when my gate queue exceeds a set threshold
+I can request backup or open additional lanes immediately
+High
+STF-03
+Coordinator
+assign tasks to specific team members through the dashboard
+Responses are coordinated without radio confusion
+High
+STF-04
+Staff member
+log incidents with location, type, and timestamp
+All events are recorded for review and escalation
+Medium
+STF-05
+Announcer
+broadcast instant messages to all attendee devices and screens
+Critical information reaches everyone simultaneously
+High
+STF-06
+Cleaning team lead
+see which restrooms are above capacity
+Cleaning resources are deployed where most needed
+Medium
+STF-07
+Transport coordinator
+see predicted exit flow by zone and time slot
+Buses and shuttles are pre-positioned efficiently
+Medium
+3.3 Venue Operator User Stories
+ID
+As a...
+I want to...
+So that...
+Priority
+VEN-01
+Operations Director
+see a real-time operational overview on a single dashboard
+I can make decisions without consulting multiple disconnected systems
+High
+VEN-02
+Data Analyst
+access post-event analytics with crowd flow, wait time, and revenue data
+I can identify bottlenecks and improve planning for future events
+Medium
+VEN-03
+Operations Director
+receive automated alerts when predicted congestion exceeds thresholds
+The system acts as an early warning tool without manual monitoring
+High
+VEN-04
+Revenue Manager
+see pre-order volumes and concession demand by zone and time
+I can adjust staffing and inventory in real time
+Medium
+VEN-05
+Emergency Coordinator
+trigger a venue-wide emergency protocol from a single button
+All systems — alerts, signage, staff dashboards — respond instantly
+High
+VEN-06
+IT Manager
+integrate the system with existing ticketing, CCTV, and POS platforms
+There is no duplication of data and operations remain seamless
+High
+4. Feature Requirements
+Features are organized by user group and tagged with priority. All High-priority features are required for the Minimum Viable Product (MVP).
+  ATTENDEE-FACING FEATURES
+  F-ATT-01  |  Digital Ticket & QR Entry
+Attendees receive a unique QR code upon booking. The code is stored in the app and functions offline. Gate scanners read the code in under 1 second and update the entry system in real time.
+Offline QR code storage (no network required at scan)
+Dynamic QR refresh every 30 seconds to prevent screenshot fraud
+Integration with venue ticketing API for real-time validation
+Accessibility: code enlargeable for elderly users
+  F-ATT-02  |  Live Interactive Venue Map
+A fully navigable map of the venue including seating zones, food courts, restrooms, first aid, exits, and accessible routes. Updated in real time with crowd density overlays.
+Indoor navigation with step-by-step directions to any venue point
+Color-coded crowd density indicators (green / amber / red)
+Accessible route highlighting for mobility-impaired users
+Search functionality: 'nearest restroom', 'Section B entrance'
+  F-ATT-03  |  Real-Time Queue & Wait Time Display
+Live wait-time estimates for all entry gates, food stalls, merchandise counters, and restrooms, derived from sensor data and updated every 60 seconds.
+Gate-by-gate estimated wait time in minutes
+Smart recommendation: 'Gate 7 is 4 mins faster right now'
+Historical trends shown for planning (e.g. half-time rush prediction)
+SMS fallback for users without smartphone data connection
+  F-ATT-04  |  Food & Merchandise Pre-Ordering
+Attendees can browse menus, place orders, and pay in-app with a timed pickup slot. Orders are routed to the nearest or least-busy service point.
+In-app menu with real-time item availability
+Payment via UPI, card, and wallet integrations
+Timed pickup slots to reduce counter crowding
+Order tracking with ready-to-collect notification
+  F-ATT-05  |  Push Alerts & Notifications
+Context-aware, personalized notifications delivered via push, SMS, and in-app banner. Covers gate changes, match updates, safety alerts, and service promotions.
+Priority tiering: Emergency > Operational > Informational > Promotional
+Location-based alerts (e.g. 'Your nearest food stall is now ready')
+Do-not-disturb setting with emergency override
+Broadcast capability for venue-wide emergency messages
+  F-ATT-06  |  Accessibility Support
+Dedicated accessibility mode providing wheelchair-accessible route guidance, large text options, hearing loop zone indicators, and priority service information.
+Accessibility toggle in onboarding and settings
+Dedicated accessible entrance navigation
+Companion ticket linking and group navigation
+Screen reader compatibility (WCAG 2.1 AA compliance)
+  STAFF-FACING FEATURES
+  F-STF-01  |  Crowd Monitoring Dashboard
+A real-time web-based dashboard providing a venue-wide overview of crowd distribution, queue lengths, and service utilization. Accessible on tablet and desktop.
+Live heatmap updated every 60 seconds from IoT and camera feeds
+Zone-by-zone crowd count and capacity percentage
+Queue length indicators for all monitored service points
+Alert panel with color-coded urgency levels
+  F-STF-02  |  Task Assignment & Team Coordination
+A structured task management module allowing supervisors to create, assign, and track tasks in real time. Team members receive tasks on their mobile devices.
+Task creation with zone, type, priority, and assignee fields
+In-app acknowledgement and status updates from field staff
+Shift scheduling integration with task auto-routing
+Audit trail of all task assignments and completions
+  F-STF-03  |  Incident Reporting System
+A structured form for logging crowd incidents, medical events, security concerns, or infrastructure issues. Reports are automatically routed to the relevant department.
+Incident type taxonomy with mandatory fields
+Photo and voice note attachment capability
+Auto-escalation based on incident severity
+Integration with venue emergency response protocols
+  F-STF-04  |  Communication & Announcement Panel
+A centralized interface for sending announcements to attendees via app notification, digital signage, SMS broadcast, and PA system integration.
+Pre-written announcement templates for common scenarios
+Zone-targeted or venue-wide broadcast selection
+Message scheduling for pre-planned announcements
+Delivery confirmation log with read receipts where available
+  VENUE OPERATOR FEATURES
+  F-VEN-01  |  Operational Command Centre
+A comprehensive venue-level dashboard aggregating all operational data streams — crowd, services, staff, incidents, and revenue — into a unified command view.
+Multi-zone overview with drill-down capability
+Live KPI cards: gate throughput, average wait time, incident count, revenue
+Configurable alert thresholds with escalation rules
+Role-based access control for different management levels
+  F-VEN-02  |  AI Congestion Prediction Engine
+Machine learning models trained on historical event data and real-time sensor feeds to predict congestion hotspots up to 15 minutes in advance.
+Zone-level congestion probability scores updated every 5 minutes
+Event-type calibration (final match vs. regular season)
+Automated routing suggestions pushed to attendee app
+Model accuracy dashboard for continuous improvement
+  F-VEN-03  |  System Integration Hub
+API-driven integration layer connecting SVES with existing venue infrastructure: ticketing systems, CCTV platforms, POS terminals, and transport management.
+RESTful API with OAuth 2.0 authentication
+Webhook support for real-time data push from ticketing providers
+POS data ingestion for concession demand analytics
+Transport API integration for shuttle and parking coordination
+  F-VEN-04  |  Post-Event Analytics & Reporting
+Automated post-event reports delivered within 4 hours of event close, covering crowd flow, wait times, revenue, incidents, and staff utilization.
+Standardized PDF report with executive summary and charts
+Interactive data explorer for drill-down analysis
+Benchmarking against previous events of similar type and size
+Export to CSV, Excel, and BI tool connectors (Tableau, Power BI)
+  F-VEN-05  |  Emergency Response Coordination
+A dedicated emergency mode activatable by authorized operators, triggering coordinated responses across all channels simultaneously.
+One-click emergency activation with scenario presets
+Automated crowd direction overlay on attendee maps
+Staff mobilization with role-specific instructions
+External agency notification (police, medical) with location data
+5. Success Metrics & KPIs
+The following metrics define success for the Smart Venue Experience System. All targets are to be achieved within the first full season (approximately 20 events) following deployment.
+5.1 Attendee Experience Metrics
+Metric
+Baseline
+Target
+Measurement Method
+Average gate entry time
+8 minutes
+< 3 minutes
+Gate scanner timestamp data
+Average food/service queue time
+12 minutes
+< 6 minutes
+In-app queue time tracking
+App adoption rate (ticket holders)
+0%
+> 65%
+App download and login analytics
+Net Promoter Score (NPS)
+Not measured
+> 70
+Post-event survey (sample 10%)
+Accessibility feature usage
+0%
+> 80% of eligible users
+Accessibility mode activation logs
+In-app pre-order conversion
+0%
+> 30% of app users
+POS and app order reconciliation
+5.2 Operational Efficiency Metrics
+Metric
+Baseline
+Target
+Measurement Method
+Crowd-related safety incidents
+Baseline from last 3 seasons
+60% reduction
+Incident report system logs
+Staff response time to alerts
+~12 minutes average
+< 4 minutes
+Task assignment timestamp delta
+Congestion prediction accuracy
+N/A
+> 85%
+Predicted vs. actual congestion comparison
+Gate throughput (people/hour)
+Venue baseline
+40% improvement
+Turnstile count data
+Staff task completion rate
+Not tracked
+> 90%
+Task management dashboard
+Emergency alert delivery time
+Not measured
+< 30 seconds
+Notification dispatch logs
+5.3 Venue Business Metrics
+Metric
+Baseline
+Target
+Measurement Method
+Revenue per attendee
+Venue baseline
+20% increase
+POS and pre-order revenue data
+Concession revenue uplift
+Venue baseline
+15% increase
+POS system comparison
+Post-event report delivery time
+24–48 hours manual
+< 4 hours automated
+Report generation timestamp
+System uptime during events
+N/A
+> 99.5%
+Cloud infrastructure monitoring
+Integration data latency
+N/A
+< 60 seconds
+API monitoring dashboards
+5.4 Technical Performance Metrics
+Metric
+Baseline
+Target
+Measurement Method
+Mobile app load time
+N/A
+< 2 seconds (3G)
+Performance testing framework
+Push notification delivery rate
+N/A
+> 95%
+Notification service analytics
+QR scan-to-validation time
+N/A
+< 1 second
+Gate system log timestamps
+Dashboard data refresh rate
+N/A
+Every 60 seconds
+Monitoring dashboard
+API response time (p95)
+N/A
+< 500ms
+API gateway metrics
+Concurrent user capacity
+N/A
+100% of venue capacity
+Load testing results
+6. Technical Architecture Overview
+6.1 Technology Stack
+Mobile App: React Native (iOS & Android), offline-first with local QR caching
+Staff Dashboard: React.js web application, responsive for tablet and desktop
+Backend: Node.js microservices with GraphQL API gateway
+AI/ML Engine: Python (TensorFlow/PyTorch) for crowd prediction models
+Database: PostgreSQL for transactional data, Redis for real-time caching, ClickHouse for analytics
+IoT Data Pipeline: Apache Kafka for sensor stream processing
+Cloud Infrastructure: AWS (ECS for containers, RDS, ElastiCache, S3, CloudFront)
+Notifications: Firebase Cloud Messaging (FCM) + AWS SNS for SMS
+Authentication: OAuth 2.0 / JWT, Role-Based Access Control (RBAC)
+6.2 Data Sources
+IoT sensors: Bluetooth/Wi-Fi probe data for crowd density estimation
+CCTV analytics: Computer vision API for people counting and queue detection
+Turnstile and gate scanners: Entry/exit counts per gate per minute
+Ticketing system: Pre-event attendance projections by zone
+POS terminals: Real-time sales data by concession zone
+Mobile app: GPS and beacon-based indoor positioning
+6.3 Security & Compliance
+All data encrypted in transit (TLS 1.3) and at rest (AES-256)
+DPDP Act 2023 (India) compliant data collection and consent flows
+QR codes use HMAC-SHA256 signing with rolling secrets
+CCTV data processed locally with anonymized crowd counts sent to cloud
+Role-based access with MFA required for staff and operator accounts
+Annual third-party security audit and penetration testing
+7. Release Roadmap
+Phase 1 — MVP (Months 1–4)
+Digital QR ticketing and gate entry integration
+Live venue map with basic navigation
+Real-time queue wait time display for gates
+Staff crowd monitoring dashboard (heatmap + alerts)
+Push notification engine (emergency + operational alerts)
+Basic venue operator command view
+Phase 2 — Full v1.0 (Months 5–8)
+Food and merchandise pre-ordering with POS integration
+AI congestion prediction engine (first model version)
+Task assignment and team coordination tools
+Incident reporting system
+Accessibility mode and accessible route navigation
+Post-event automated analytics reports
+Phase 3 — v1.5 (Months 9–12)
+Multi-language support (Hindi, Tamil, Marathi for initial rollout)
+Loyalty and rewards integration
+Advanced BI connector exports (Tableau, Power BI)
+Predictive transport and parking coordination
+Inter-venue platform deployment and configuration management
+8. Assumptions & Constraints
+8.1 Assumptions
+Venue has existing Wi-Fi infrastructure capable of supporting concurrent attendee connections
+At least 65% of target attendees own a smartphone with iOS 14+ or Android 10+
+Venue operator will provide API access to existing ticketing, POS, and CCTV systems
+Staff will be trained on the dashboard tools before deployment
+IoT sensor hardware procurement and installation is managed separately by venue operations team
+8.2 Constraints
+System must function with degraded sensor data (minimum 70% sensor uptime) without complete failure
+App must work in offline / low-connectivity mode for core features (QR code, saved map)
+Budget ceiling for v1.0 development: to be confirmed by product leadership
+Launch deadline aligned with start of next domestic cricket / football season
+All data storage must be India-resident for compliance with DPDP Act 2023
+9. Open Questions
+Will the venue operator provide dedicated API keys and sandbox environments for ticketing system integration before development begins?
+What is the minimum threshold for sensor coverage (% of zones) required before the AI prediction engine is considered reliable enough to display to attendees?
+Should the staff task assignment system integrate with the venue's existing HR and shift scheduling software, or operate independently?
+What is the approved data retention period for CCTV-derived crowd analytics before anonymization is applied?
+Will the mobile app support a 'group leader' mode for coordinating family or corporate groups attending together?
+Is there appetite for a white-label version of the platform that different venue operators can brand independently?
+Smart Venue Experience System  |  PRD v1.0  |  April 2026  |  Confidential
+=== Design ===
+ 
+DESIGN LANGUAGE DOCUMENT  ·  VERSION 1.0  ·  APRIL 2026
+SMART VENUE
+EXPERIENCE SYSTEM
+Dark Command Aesthetic  ·  Precision Data Interface  ·  Real-Time Operations
+Aesthetic
+Dark Ops Command
+Primary Surface
+Void Black / Gunmetal
+Accent System
+Stadium Gold
+Typography
+Arial + Courier New
+01  —  Design Philosophy
+Core Aesthetic Direction
+Every screen in the SVES platform should feel like a mission control environment — dense with real data, zero decorative clutter. The design language is built on four principles:
+DARK OPS COMMAND
+Operators trust the system because it looks like it means business. No decorative elements. Pure information architecture.
+GOLD AS SIGNAL
+Gold marks live values, active states, and primary actions only. When a number glows gold, it is happening right now.
+PRECISION GRID
+Sharp 2px corners. 1px borders. Pixel-level alignment. The grid is visible in the discipline of the layout itself.
+DATA DENSITY
+Mini-charts, sparklines, and delta indicators live alongside primary numbers. Staff can read status in a 2-second glance.
+02  —  Color System
+Palette
+Surface Stack — Background Layers
+   
+   
+   
+   
+Void
+Surface 1
+Surface 2
+Surface 4
+#0A0A0B
+Page background
+#111113
+Panel background
+#18181C
+Card background
+#26262E
+Hover / Input
+Gold Accent Ramp — Primary Signal
+   
+   
+   
+   
+Gold Dim
+Gold
+Gold Light
+Gold Pale
+#7A5518
+Inactive bars
+#C8912A
+Primary accent
+#E8B84B
+Live values
+#F5D98A
+Hover / Focus
+Semantic Status Colors
+   
+   
+   
+Operational Green
+Alert Red
+Info Blue
+#2A7A4A
+Normal / Safe
+#8A2A2A
+Critical / Danger
+#2A4A7A
+Informational
+Text Hierarchy
+F0EDE6  Primary
+Headings, key metric values, active labels, navigation items
+9B9891  Secondary
+Body text, table data, descriptions, general UI copy
+5A5856  Muted
+Metadata, timestamps, axis labels, placeholder text
+C8912A  Gold
+Live values, active navigation state, primary interactive accents
+3DB86E  Green
+Normal status indicators, success states, cleared alerts
+D84040  Red
+Critical alerts, danger states, emergency indicators
+03  —  Typography
+Type System
+Three typefaces form a deliberate hierarchy — each with a specific role based on the type of information being communicated.
+Role / Scale
+Sample
+Display  /  72pt  /  Bold
+AT&T STADIUM
+Section  /  36pt  /  Bold
+CROWD FLOW ANALYSIS
+Metric Value  /  48pt
+30,000
+Mono Label  /  11pt
+TOTAL GUESTS  ·  LIVE  ·  13:22:07
+Body  /  13pt
+A compact summary of the current event: total crowd size, which zone is busiest, and how many alerts are active.
+Micro  /  10pt
+Gate I  ·  Avg. Time: 1 min 45 sec  ·  Entry Rate: 847/hr
+Font Usage Rules
+Arial (display)
+All metric values, section headings, navigation labels, button text, zone names
+Arial (bold)
+Any number that a staff member needs to read across a room — minimum 28pt for dashboard metrics
+Courier New (mono)
+Timestamps, data tags, axis ticks, status identifiers, code-like labels — always lowercase or ALL CAPS
+Arial (body)
+Descriptions, table cell body content, alert messages, tooltip copy — 12–13pt, color TEXT_SEC
+Line height
+Body text: 1.6x. Monospace labels: 1.2x. Metric display: 1.0x (single line)
+04  —  Components
+UI Component Specifications
+Navigation Bar
+Height
+52px fixed, pinned top
+Background
+Surface 1 (#111113) with 1px Gold Dim bottom border
+Logo
+Arial Bold 18pt — 'SVE' white + 'S' gold
+Nav items
+Courier New 10pt, ALL CAPS, color TEXT_MUT. Active item: gold + 1px gold underline
+Right side
+Live clock (Courier New, green) + current event tag (gold pill)
+Separator
+1px vertical line in SURFACE3 between nav groups
+Metric Cards
+Size
+Flex equal-width, 4 per row maximum
+Background
+Surface 2 with 1px SURFACE3 border
+Primary value
+Arial Bold 32–42pt, color GOLD_LIGHT
+Delta badge
+Courier New 10pt in colored pill: green for positive, red for negative
+Sparkline
+Bar chart, 6–8 bars, width 8px, gap 2px, active bar GOLD, inactive GOLD_DIM
+Label
+Courier New 9pt ALL CAPS, color TEXT_MUT, bottom of card
+Alert System — Three Tiers
+Level
+Color
+Dot Color
+Behaviour
+NORMAL
+Green (2A7A4A left border)
+#3DB86E
+Static row. No animation. Staff awareness only.
+WARNING
+Gold (C8912A left border)
+#C8912A
+Slide-in from right, 280ms ease-out. Badge pulses once.
+CRITICAL
+Red (D84040 left border)
+#D84040
+Instant appear. Row height expands briefly. Audio ping.
+Buttons
+Primary
+Gold gradient fill (#7A5518 to #C8912A). Text: Arial Bold 12pt, uppercase, void black. Corner radius: 2px
+Ghost
+Transparent background. 1px BORDER_BR border. Text: Arial SemiBold, uppercase, TEXT_SEC
+Danger
+Red translucent fill (20% opacity). 1px red border. Text: RED_LT. Use only for emergency / irreversible actions
+Min height
+40px for all buttons. Touch target 44px minimum on mobile
+Tags & Status Pills
+Gold  LIVE
+Background: 15% GOLD opacity. Border: 35% GOLD. Text: GOLD_LIGHT. Courier New 10pt
+Green  CLEARED
+Background: 15% GREEN opacity. Border: 30% GREEN_LT. Text: GREEN_LT
+Red  CRITICAL
+Background: 15% RED opacity. Border: 30% RED_LT. Text: RED_LT
+Blue  SCHEDULED
+Background: 20% BLUE opacity. Border: 30% BLUE_LT. Text: BLUE_LT
+Corner radius
+2px only — never pill shapes. Sharp edges define the precision identity.
+Heatmap Cells
+Low density
+#2A7A4A — fewer than 33% of zone capacity
+Moderate density
+#C8912A — 33% to 66% capacity
+High density
+#D4820A — 66% to 90% capacity
+Critical density
+#D84040 — above 90% capacity
+Cell size
+Minimum 16px height. Gap between cells: 2px. Radius: 1px
+Transition
+Color interpolates over 1 second. Never instant. Smooth transitions preserve gradient reading.
+Event Timeline Scrubber
+Height
+48px strip, full width
+Slot width
+Equal division of full timeline width
+Default slot
+Background SURFACE1, Courier New 9pt timestamp, color TEXT_MUT
+Active slot
+Background: 12% GOLD opacity. Text: GOLD. Current playback marker
+Event marker
+Background: 10% RED opacity. Text: RED_LT. Significant event (kickoff, half-time, incident)
+Border
+1px SURFACE3 between slots, 1px BORDER_BR around strip
+05  —  Layout & Spacing
+Grid System
+Base Unit & Spacing Scale
+Base unit
+4px — all spacing is a multiple of 4
+XS  (4px)
+Internal icon padding, tight inline gaps
+SM  (8px)
+Component internal spacing, icon-to-label gap
+MD  (12px)
+Card gap, component group spacing
+LG  (16–20px)
+Card padding, panel inset
+XL  (24px)
+Section gap, major layout divisions
+XXL  (40px+)
+Full-page section separation
+Page Layouts
+Dashboard — Venue
+12-column grid. Metric ribbon (4-up) top. Main 68% + sidebar 32% split below. Timeline scrubber pinned bottom.
+Dashboard — Staff
+Heatmap panel left 55%, alert + task panel right 45%. Alert panel always visible, never scrolled out of view.
+Attendee App
+Single-column mobile. Map occupies full viewport height. Bottom sheet overlays for info panels.
+Tables
+Full-width. Row height 44px. Alternating row shading: SURFACE1 / SURFACE2. 12px vertical padding per cell.
+Nav bar
+52px fixed top. Full width. SURFACE1 background. Gold Dim bottom border 1px.
+06  —  Motion & Animation
+Timing Guidelines
+Animation in SVES is functional, not decorative. Every transition must justify its existence by communicating state change or directing attention.
+Rule
+Element
+Duration
+Notes
+Data pulse
+Metric card value
+400ms
+Color pulses to GOLD_PALE on data update, then returns. Ease-out. Only on actual data change.
+Alert entry
+New alert row
+280ms
+Slides in from right. Ease-out. Critical alerts also briefly expand row height for 600ms.
+Bar fill
+Sparklines on load
+600ms
+Bars animate from 0 to value, staggered 40ms apart. Gives dashboard a powering-up feel.
+Heatmap shift
+Cell color change
+1000ms
+Color interpolates smoothly. Abrupt changes obscure density gradient direction.
+Page nav
+Section transition
+200ms
+Opacity fade only. No slides — too playful for an operational context.
+Emergency mode
+Override all
+0ms
+Red overlay appears instantly. No animation during active incidents. Speed signals urgency.
+07  —  Design Rules
+Do / Don't
+DO
+DON'T
++ Use Arial Bold for all numeric data — it reads at a distance
+- Never use rounded pill corners — sharp 2px defines precision identity
++ Reserve gold exclusively for live and primary interactive elements
+- Never use gold for decoration — it loses meaning as a live-data signal
++ Show delta indicators (±%) next to every changing metric card
+- Never show more than 4 metric cards per horizontal row
++ Use 2px left-border on cards to visually prioritize alert panels
+- Never use bright white backgrounds — breaks the dark environment
++ Label all axis ticks in Courier New at 10–11pt
+- Never animate during an active emergency incident
++ Display timestamps in 24h format with seconds for operations
+- Never mix font sizes below 10pt — readability is non-negotiable
++ Maintain 4px base grid — all spacing must be a multiple of 4
+- Never stack multiple critical alerts without visual hierarchy between them
++ Use ShadingType.CLEAR for all table and card fills
+- Never use percentage widths in tables — always DXA for compatibility
+08  —  Screen Contexts
+Three User Environments
+ATTENDEE APP
+iOS  ·  Android  ·  Mobile-first
+Touch targets 44px+. Map-centric full-viewport layout. Bottom sheet overlays for wait times and navigation. Color coding: green = clear, gold = moderate, red = busy. Simplified metric display — no sparklines. Font minimum 14pt for outdoor visibility.
+STAFF DASHBOARD
+Web  ·  Tablet  ·  Desktop
+Dense data panels. Heatmap + table split view (55/45). Alert panel always pinned right and cannot be scrolled out of view. Task assignment sidebar. Refresh indicator shows last data pull. All metric cards include delta badges and sparklines.
+VENUE COMMAND
+Web  ·  Large Monitor  ·  Touch Wall
+3D venue visualization with density overlay blobs. Timeline scrubber pinned bottom. KPI ribbon pinned top. Emergency button always visible in top-right, always red. Multi-department view with role-based panel toggling. Post-event analytics accessible from header.
+09  —  Accessibility
+Inclusive Design Requirements
+Contrast ratio
+All text on dark surfaces must meet WCAG 2.1 AA minimum — 4.5:1 for body, 3:1 for large text
+Minimum font
+10pt absolute minimum. Operational text for staff: 12pt+. Attendee app: 14pt+
+Touch targets
+44px minimum height and width for all interactive elements on mobile
+Focus states
+2px gold outline on all keyboard-focusable elements. No focus outline suppression
+Screen readers
+All data tables include proper headers. Charts include text fallback descriptions
+Color alone
+Never use color as the only differentiator. Alert levels include text label + dot + border color
+Motion
+Provide reduced-motion mode that disables all non-essential animations
+Emergency alerts
+Must be conveyed via audio (venue PA integration) in addition to visual display
+Accessibility mode
+Attendee app: dedicated toggle enabling large text, accessible routes, companion linking, hearing loop zones
+Smart Venue Experience System  |  Design Language Document v1.0  |  April 2026  |  Confidential
+All component decisions derive from one principle: the system should feel as authoritative as the venue itself. When staff trust the interface, they act faster. When attendees trust the app, they follow guidance. Design is operational infrastructure.
+=== Tech Stack ===
+Tech Stack Recommendation Prompt — Smart Venue Experience System (SVES)
+ROLE
+You are a senior software architect (2026) with deep expertise in scalable web systems, real-time data platforms, cloud-native infrastructure, and modern full-stack development.
+CONTEXT
+You are designing a system based on a real-world Product Requirements Document (PRD) for:
+Smart Venue Experience System (SVES) — a large-scale platform for managing stadium operations, crowd flow, real-time analytics, and attendee experience.
+The system includes:
+Real-time crowd tracking (IoT + AI)
+Mobile app for attendees
+Staff dashboard for operations
+Venue command center analytics
+QR-based entry system
+Notifications (push + SMS + signage)
+Integration with ticketing, POS, CCTV, and transport APIs
+Refer to the PRD for full details.
+INPUT DOCUMENTS
+PRD:
+Design System:
+TASK
+Based on the PRD, recommend the most suitable, modern, and practical tech stack for 2026.
+REQUIREMENTS
+1. Recommend a COMPLETE tech stack covering:
+Frontend(web dashboard + mobile app frameworks, styling, state management)
+Backend(framework + architecture style, e.g., monolith vs microservices)
+Authentication system
+Database(transactional + real-time + analytics if needed)
+Deployment / DevOps(cloud platform + CI/CD + hosting approach)
+2. For EACH component:
+Clearly name the technology
+Justify WHY it fits THIS PRD specifically
+Explain trade-offs vs alternatives (short but meaningful)
+3. Ensure the solution is:
+Suitable for 2026 standards (cloud-native, AI-ready) (Avidclan Technologies)
+Scalable for:
+Real-time updates
+High concurrent users (stadium scale)
+Data-heavy dashboards
+Practical for:
+A small team / student project
+Avoid unnecessary complexity
+4. Include:
+High-level system architecture(how frontend, backend, AI, and data systems connect)
+Data flow:user → API → processing → database → response
+Real-time handling approach(WebSockets / streaming / polling)
+5. Constraints (IMPORTANT)
+Do NOT suggest unrealistic enterprise-only setups
+Do NOT over-engineer (keep MVP feasible)
+Do NOT give generic answers
+6. Output Format
+1. Recommended Tech Stack
+Frontend:
+Backend:
+Auth:
+Database:
+Deployment:
+2. Justification (Component-wise)
+3. System Architecture
+4. Trade-offs
+5. Optional Alternatives
+FINAL INSTRUCTION
+Focus on:
+Real-world feasibility
+Performance under load
+Developer experience
+Clean and maintainable architecture
+Avoid generic or textbook answers. Be specific to THIS system.

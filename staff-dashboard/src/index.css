@@ -1,0 +1,79 @@
+:root {
+  /* Dark Ops Command - Design Tokens */
+  --void-black: #050505;
+  --panel-bg: #141414;
+  --border-color: #333333;
+  
+  --gold-accent: #D4AF37;
+  --gold-dim: rgba(212, 175, 55, 0.2);
+  --gold-hover: #E5C158;
+  
+  --text-main: #E0E0E0;
+  --text-muted: #888888;
+  --text-alert: #FF4444;
+  --alert-bg: rgba(255, 68, 68, 0.1);
+  
+  /* Typography */
+  --font-sans: 'Arial', sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: var(--void-black);
+  
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--void-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--gold-accent);
+  margin-top: 0;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--gold-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--gold-hover);
+}
+
+button {
+  font-family: var(--font-sans);
+}
+
+/* 12-Column Grid System */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.col-span-12 { grid-column: span 12; }
+.col-span-8 { grid-column: span 8; }
+.col-span-6 { grid-column: span 6; }
+.col-span-4 { grid-column: span 4; }
+.col-span-3 { grid-column: span 3; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .col-span-8, .col-span-6, .col-span-4, .col-span-3 { grid-column: span 12; }
+}

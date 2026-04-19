@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ATTENDEE
+  STAFF
+  OPERATOR
+}
+
+enum POIType {
+  FOOD
+  RESTROOM
+  FIRST_AID
+  MERCHANDISE
+  INFO
+}
+
+enum Audience {
+  STAFF
+  ATTENDEE
+  ALL
+}
+
+enum Priority {
+  LOW
+  HIGH
+  CRITICAL
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      Role     @default(ATTENDEE)
+  firstName String?
+  lastName  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Zone {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  capacity    Int      @default(0)
+  description String?
+  gates       Gate[]
+  pois        POI[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Gate {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  zoneId    String
+  zone      Zone     @relation(fields: [zoneId], references: [id])
+  status    String   @default("OPEN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model POI {
+  id          String   @id @default(uuid())
+  name        String
+  type        POIType
+  zoneId      String
+  zone        Zone     @relation(fields: [zoneId], references: [id])
+  coordX      Float    @default(0.0)
+  coordY      Float    @default(0.0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  vendor      Vendor?
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  title     String
+  message   String
+  audience  Audience
+  priority  Priority @default(LOW)
+  createdAt DateTime @default(now())
+}
+
+model Vendor {
+  id          String     @id @default(uuid())
+  name        String
+  description String?
+  poiId       String     @unique
+  poi         POI        @relation(fields: [poiId], references: [id])
+  menuItems   MenuItem[]
+  orders      Order[]
+}
+
+model MenuItem {
+  id          String      @id @default(uuid())
+  vendorId    String
+  vendor      Vendor      @relation(fields: [vendorId], references: [id])
+  name        String
+  price       Float
+  isAvailable Boolean     @default(true)
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  userId      String      // Linking to phone or user ID
+  vendorId    String
+  vendor      Vendor      @relation(fields: [vendorId], references: [id])
+  totalAmount Float
+  status      String      @default("PENDING") // PENDING, READY, COMPLETED
+  items       OrderItem[]
+  createdAt   DateTime    @default(now())
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id])
+  menuItemId  String
+  menuItem    MenuItem @relation(fields: [menuItemId], references: [id])
+  quantity    Int
+}
+
+model Incident {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  status      String   @default("OPEN") // OPEN, IN_PROGRESS, RESOLVED
+  assignedTo  String?  // Staff name or ID
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
