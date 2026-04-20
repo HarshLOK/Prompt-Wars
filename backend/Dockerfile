@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Generate Prisma Client
-RUN npx prisma generate
+RUN DATABASE_URL=postgresql://root:password@localhost:5432/crowdsync npx prisma generate
 
 EXPOSE 4000
 CMD [ "npm", "start" ]
