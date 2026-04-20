@@ -56,7 +56,8 @@ async function startServer() {
 
     console.log('Initializing Prisma Client...');
     try {
-        prisma = new PrismaClient();
+        const { getPrisma } = require('./db');
+        prisma = getPrisma();
         console.log('Prisma Client initialized successfully.');
     } catch (e) {
         console.error('Failed to initialize Prisma Client:', e);

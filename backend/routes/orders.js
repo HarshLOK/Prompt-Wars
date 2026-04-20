@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { authenticate } = require('../auth');
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
+const { getPrisma } = require('../db');
+const prisma = getPrisma();
 
 // MVP Mock Data Fallback
 const mockOrders = [];

@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { authenticate, requireRole } = require('../auth');
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
+const { getPrisma } = require('../db');
+const prisma = getPrisma();
 
 const mockIncidents = [
     { id: 'inc-1', title: 'Spill at Food Court', description: 'Large drink spilled near Burger Stand.', status: 'OPEN', assignedTo: null, createdAt: new Date().toISOString() }
