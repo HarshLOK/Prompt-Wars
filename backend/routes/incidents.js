@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { authenticate, requireRole } = require('../auth');
 const { getPrisma } = require('../db');
-const prisma = getPrisma();
 
 const mockIncidents = [
     { id: 'inc-1', title: 'Spill at Food Court', description: 'Large drink spilled near Burger Stand.', status: 'OPEN', assignedTo: null, createdAt: new Date().toISOString() }
@@ -10,6 +9,7 @@ const mockIncidents = [
 
 // GET /api/incidents
 router.get('/', authenticate, async (req, res) => {
+    const prisma = getPrisma();
     try {
         const incidents = await prisma.incident.findMany({
             orderBy: { createdAt: 'desc' }
@@ -24,6 +24,7 @@ router.get('/', authenticate, async (req, res) => {
 // POST /api/incidents
 router.post('/', authenticate, async (req, res) => {
     const { title, description } = req.body;
+    const prisma = getPrisma();
     
     if (!title || !description) {
         return res.status(400).json({ error: 'Title and description are required' });
@@ -46,6 +47,7 @@ router.post('/', authenticate, async (req, res) => {
 router.patch('/:id', authenticate, async (req, res) => {
     const { id } = req.params;
     const { status, assignedTo } = req.body;
+    const prisma = getPrisma();
 
     try {
         const updated = await prisma.incident.update({

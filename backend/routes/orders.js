@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { authenticate } = require('../auth');
 const { getPrisma } = require('../db');
-const prisma = getPrisma();
 
 // MVP Mock Data Fallback
 const mockOrders = [];
@@ -10,6 +9,7 @@ let mockId = 1;
 
 // GET /api/orders (Staff Queue)
 router.get('/', authenticate, async (req, res) => {
+    const prisma = getPrisma();
     try {
         const orders = await prisma.order.findMany({
             include: { items: true },
@@ -26,6 +26,7 @@ router.get('/', authenticate, async (req, res) => {
 // Intentionally not authenticated here for MVP so attendees without accounts can order via QR session
 router.post('/', async (req, res) => {
     const { vendorId, phone, items, totalAmount } = req.body;
+    const prisma = getPrisma();
     
     if (!vendorId || !items || items.length === 0) {
         return res.status(400).json({ error: 'Invalid order payload' });
