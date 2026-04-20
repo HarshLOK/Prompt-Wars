@@ -1,10 +1,12 @@
-FROM node:22-slim
+FROM node:22-bookworm-slim
+
+# Install system dependencies for Prisma
+RUN apt-get update -y && \
+    apt-get install -y openssl libssl-dev ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create app directory
 WORKDIR /usr/src/app
-
-# Install openssl for Prisma
-RUN apt-get update -y && apt-get install -y openssl
 
 # Install app dependencies
 COPY package*.json ./

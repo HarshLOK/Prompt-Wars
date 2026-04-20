@@ -12,8 +12,7 @@ const { initKafka } = require('./kafkaService');
 const jwt = require('jsonwebtoken');
 const { Server } = require('socket.io');
 const http = require('http');
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+let prisma;
 const { createClient } = require('redis');
 const { createAdapter } = require('@socket.io/redis-adapter');
 const { loadGCPSecrets } = require('./secrets');
@@ -49,8 +48,20 @@ const resolvers = {
 };
 
 async function startServer() {
+    const { PrismaClient } = require('@prisma/client');
+    console.log('Starting server initialization...');
+    
     // 1. Load Secrets from GCP Secret Manager First
     await loadGCPSecrets();
+
+    console.log('Initializing Prisma Client...');
+    try {
+        prisma = new PrismaClient();
+        console.log('Prisma Client initialized successfully.');
+    } catch (e) {
+        console.error('Failed to initialize Prisma Client:', e);
+        throw e;
+    }
 
     const app = express();
     const httpServer = http.createServer(app);
@@ -338,7 +349,8 @@ async function startServer() {
 }
 
 startServer().catch(err => {
-    console.error('Failed to start server:', err);
+    console.error('CRITICAL FAILURE: Failed to start server:', err);
+    process.exit(1);
 });
 
 // Trigger deployment
