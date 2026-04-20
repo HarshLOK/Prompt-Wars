@@ -40,3 +40,4 @@ jobs:
           flags: |
             --port=4000
             --allow-unauthenticated
+            --set-env-vars="DATABASE_URL=postgresql://root:password@127.0.0.1:5433/crowdsync?schema=public,JWT_SECRET=super_secret_crowdsync_key_2026"
